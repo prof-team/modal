@@ -1,0 +1,38 @@
+{
+  "name": "@profteam/modal",
+  "version": "v0.0.9",
+  "description": "Modals for fast development",
+  "module": "esm/index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "^12",
+    "npm": "^6"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-is": "^16.9.0",
+    "react-modal": "^3.14.4",
+    "react-redux": "^7.2.6",
+    "styled-components": "^5.2.1",
+    "redux-thunk": "~2.3.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.16.0",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.2.3",
+    "html-loader": "3.0.1",
+    "html-webpack-plugin": "5.5.0",
+    "webpack": "~5.65.0",
+    "webpack-cli": "~4.9.1",
+    "webpack-dev-server": "~4.7.2"
+  },
+  "scripts": {
+    "build:esm": "babel src/ --out-dir esm/ --ignore **/__tests__,**/__mocks__",
+    "dev": "webpack-dev-server --mode development"
+  }
+}
