@@ -1,6 +1,3 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
-
 name: React-Redux Modal Package
 
 on:
@@ -21,3 +18,22 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
+  slack:
+    name: Slack
+    needs: deploy
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      # run this action to get workflow conclusion
+      # You can get conclusion by env (env.WORKFLOW_CONCLUSION)
+      - uses: technote-space/workflow-conclusion-action@v1
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: failure
+          fields: repo,message,commit,author,action,eventName,ref,workflow # selectable (default: repo,message)
+        env:
+          GITHUB_TOKEN: 0cf3ea6197802cb49514ea0ec9659111f2add1d6 # optional
+          SLACK_WEBHOOK_URL: ${{secrets.slack_webhook_url}} # required
+        if: env.WORKFLOW_CONCLUSION == 'failure'
+
