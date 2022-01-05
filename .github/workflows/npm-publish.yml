@@ -4,8 +4,8 @@
 name: React-Redux Modal Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ main ]
 
 jobs:
   publish-npm:
