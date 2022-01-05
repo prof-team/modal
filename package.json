@@ -1,6 +1,6 @@
 {
   "name": "@profteam/modal",
-  "version": "v0.0.9",
+  "version": "v0.1.0",
   "description": "Modals for fast development",
   "module": "esm/index.js",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "webpack-dev-server": "~4.7.2"
   },
   "scripts": {
-    "build:esm": "babel src/ --out-dir esm/ --ignore **/__tests__,**/__mocks__",
+    "build": "babel src/ --out-dir esm/ --ignore **/__tests__,**/__mocks__",
     "dev": "webpack-dev-server --mode development"
   }
 }

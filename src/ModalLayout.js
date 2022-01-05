@@ -233,7 +233,7 @@ const ModalLayout = ({appElement, title, size, closeReactModalAction, modal}) =>
 ModalLayout.propTypes = {
     appElement: PropTypes.object.isRequired,
     title: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'medium', 'large', 'huge']),
 
     /** redux props */
     closeReactModalAction: PropTypes.func.isRequired,
@@ -243,7 +243,7 @@ ModalLayout.propTypes = {
         bodyComponent: PropTypes.elementType,
         options: PropTypes.shape({
             title: PropTypes.string,
-            size: PropTypes.string,
+            size: PropTypes.oneOf(['small', 'medium', 'large', 'huge']),
             onAfterClose: PropTypes.func,
         })
     }).isRequired,

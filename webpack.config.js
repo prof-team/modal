@@ -1,14 +1,13 @@
 const path = require('path');
 const HtmlWebPackPlugin = require( 'html-webpack-plugin' );
 
-const srcFolder = path.join(__dirname, 'examples/src');
-const distFolder = path.join(__dirname, 'examples/dist');
+const examplesFolder = path.join(__dirname, 'examples');
 
 module.exports = {
     context: __dirname,
-    entry: path.resolve(srcFolder, 'app.js'),
+    entry: path.join(examplesFolder, 'src/app'),
     output: {
-        path: distFolder,
+        path: path.join(examplesFolder, 'dist'),
         filename: 'bundle.js',
         publicPath: '/',
     },
@@ -38,12 +37,12 @@ module.exports = {
     },
     resolve: {
         alias: {
-            '@profteam/modal': path.resolve(__dirname, 'src/index'),
+            '@profteam/modal': path.resolve('src/index'),
         },
     },
     plugins: [
         new HtmlWebPackPlugin({
-            template: path.resolve(srcFolder, 'index.html'),
+            template: path.join(examplesFolder, 'src/index.html'),
         })
     ]
 };
