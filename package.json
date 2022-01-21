@@ -4,10 +4,6 @@
   "description": "Modals for fast development",
   "module": "esm/index.js",
   "license": "MIT",
-  "engines": {
-    "node": "^12",
-    "npm": "^6"
-  },
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
