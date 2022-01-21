@@ -1,5 +1,4 @@
 .idea
-/esm/
 examples/dist
 yarn-error.log
 node_modules

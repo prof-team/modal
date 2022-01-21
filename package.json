@@ -1,6 +1,6 @@
 {
   "name": "@profteam/modal",
-  "version": "v0.1.1",
+  "version": "v0.1.3",
   "description": "Modals for fast development",
   "module": "esm/index.js",
   "license": "MIT",
@@ -29,10 +29,15 @@
     "html-webpack-plugin": "5.5.0",
     "webpack": "~5.65.0",
     "webpack-cli": "~4.9.1",
-    "webpack-dev-server": "~4.7.2"
+    "webpack-dev-server": "~4.7.2",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/user-event": "^13.5.0",
+    "react-scripts": "~5.0.0"
   },
   "scripts": {
     "build": "babel src/ --out-dir esm/ --ignore **/__tests__,**/__mocks__",
-    "dev": "webpack-dev-server --mode development"
+    "dev": "webpack-dev-server --mode development",
+    "test": "react-scripts test"
   }
 }
