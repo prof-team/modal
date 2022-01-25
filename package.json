@@ -1,18 +1,18 @@
 {
   "name": "@profteam/modal",
-  "version": "v0.1.8",
+  "version": "v0.1.9",
   "description": "Modals for fast development",
   "module": "esm/index.js",
   "license": "MIT",
   "peerDependencies": {
-    "prop-types": "^15",
+    "prop-types": "^15.7.0",
     "react": "^16.9.0",
     "redux": "^4.0.5",
     "react-dom": "^16.9.0",
     "react-is": "^16.9.0",
-    "react-modal": "^3",
-    "react-redux": "^7",
-    "styled-components": "^5",
+    "react-modal": "^3.9.1",
+    "react-redux": "^7.2.2",
+    "styled-components": "^5.2.1",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
@@ -31,14 +31,14 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^13.5.0",
     "react-scripts": "~5.0.0",
-    "prop-types": "^15.7.2",
+    "prop-types": "^15.7.0",
     "react": "^16.9.0",
+    "redux": "^4.0.5",
     "react-dom": "^16.9.0",
     "react-is": "^16.9.0",
-    "react-modal": "^3.14.4",
-    "react-redux": "^7.2.6",
+    "react-modal": "^3.9.1",
+    "react-redux": "^7.2.2",
     "styled-components": "^5.2.1",
-    "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
