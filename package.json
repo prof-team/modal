@@ -1,10 +1,10 @@
 {
   "name": "@profteam/modal",
-  "version": "v0.1.5",
+  "version": "v0.1.6",
   "description": "Modals for fast development",
   "module": "esm/index.js",
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -29,7 +29,15 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/user-event": "^13.5.0",
-    "react-scripts": "~5.0.0"
+    "react-scripts": "~5.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-is": "^16.9.0",
+    "react-modal": "^3.14.4",
+    "react-redux": "^7.2.6",
+    "styled-components": "^5.2.1",
+    "redux-thunk": "~2.3.0"
   },
   "scripts": {
     "build": "babel src/ --out-dir esm/ --ignore **/__tests__,**/__mocks__",
