@@ -1,6 +1,6 @@
 {
   "name": "@profteam/modal",
-  "version": "v0.1.4",
+  "version": "v0.1.5",
   "description": "Modals for fast development",
   "module": "esm/index.js",
   "license": "MIT",
