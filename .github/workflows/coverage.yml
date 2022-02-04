@@ -1,7 +1,7 @@
 name: 'coverage'
 on:
   push:
-    branches: [ main ]
+    branches: [ main1 ]
 jobs:
   coverage:
     runs-on: ubuntu-latest
