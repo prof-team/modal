@@ -4,6 +4,9 @@
 ## Demo  
 https://stackblitz.com/edit/react-redux-modal-for-fast-development
 
+## NPM package
+https://www.npmjs.com/package/@profteam/modal
+
 ## To release new version you need  
 - make your changes and change version in the file `package.json`
 - commit and push your changes
