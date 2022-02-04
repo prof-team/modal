@@ -7,6 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: ArtiomTr/jest-coverage-report-action@v2
+      - uses: ziishaned/jest-reporter-action@v0.0.1
         with:
-          test-script: yarn run test:coverage
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          test-command: "yarn run test:coverage"
+#      - uses: ArtiomTr/jest-coverage-report-action@v2
+#        with:
+#          package-manager: yarn
+#          test-script: yarn run test:coverage
