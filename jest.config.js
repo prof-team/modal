@@ -1,5 +1,7 @@
 const path = require('path')
 
+console.log(__dirname);
+
 module.exports = {
     roots: [path.resolve(__dirname, './src')],
     verbose: true,
