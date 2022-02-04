@@ -8,7 +8,7 @@ module.exports = {
     displayName: 'tests',
     testMatch: ['**//__tests__/**/*.js', '**/?(*.)+(spec|test).[jt]s?(x)'],
     // testURL: 'http://localhost',
-    setupFilesAfterEnv: [path.resolve(__dirname, './src/__tests__/setupTests.js')],
+    setupFilesAfterEnv: [path.resolve('src/__tests__/setupTests.js')],
     coverageReporters: ["html", "text", "text-summary", "cobertura"],
     coverageThreshold: {
         global: {
