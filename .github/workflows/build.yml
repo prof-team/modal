@@ -1,4 +1,4 @@
-name: publish package
+name: build package
 
 on:
   push:
@@ -36,7 +36,6 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           flags: unittests
-          name: codecov-umbrella
           verbose: true
 
   build:
