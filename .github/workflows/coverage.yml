@@ -31,6 +31,8 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: yarn install
+      - run: ls
+      - run: pwd
       - run: yarn run test:coverage
 #      - uses: ziishaned/jest-reporter-action@v0.0.1
 #        with:
