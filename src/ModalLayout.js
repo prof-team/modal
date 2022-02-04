@@ -6,17 +6,17 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 
 const customStyles = {
-    content : {
-        top                   : '50%',
-        left                  : '50%',
-        right                 : 'auto',
-        bottom                : 'auto',
-        minWidth              : '320px',
-        transform             : 'translate(-50%, -50%)',
-        padding               : '0',
-        maxHeight             : '95%',
-        overflow              : 'auto',
-        maxWidth              : '80%'
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        minWidth: '320px',
+        transform: 'translate(-50%, -50%)',
+        padding: '0',
+        maxHeight: '95%',
+        overflow: 'auto',
+        maxWidth: '80%'
     },
     overlay: {
         position: 'fixed',
@@ -179,7 +179,7 @@ const ModalLayout = ({appElement, title, size, closeReactModalAction, modal}) =>
     const ModalTitle = modal.options.title || title || '';
     const ModalSize = modal.options.size || size || '';
     const closeReactModalHandler = () => {
-        let res = closeReactModalAction();
+        const res = closeReactModalAction();
         if (res && typeof res.then === 'function') {
             res.then(() => {
                 if (modal.options.onAfterClose) {
@@ -213,7 +213,7 @@ const ModalLayout = ({appElement, title, size, closeReactModalAction, modal}) =>
                                     <h2>{ModalTitle}</h2>
                                     <div className="rr-title-actions">
                                         <button type="button" onClick={closeReactModalHandler}
-                                                className="rr-close rrm-icon-cancel">X
+                                            className="rr-close rrm-icon-cancel">X
                                         </button>
                                     </div>
                                 </div>
@@ -231,7 +231,7 @@ const ModalLayout = ({appElement, title, size, closeReactModalAction, modal}) =>
 };
 
 ModalLayout.propTypes = {
-    appElement: PropTypes.object.isRequired,
+    appElement: PropTypes.instanceOf(Element).isRequired,
     title: PropTypes.string,
     size: PropTypes.oneOf(['small', 'medium', 'large', 'huge']),
 
@@ -244,14 +244,14 @@ ModalLayout.propTypes = {
         options: PropTypes.shape({
             title: PropTypes.string,
             size: PropTypes.oneOf(['small', 'medium', 'large', 'huge']),
-            onAfterClose: PropTypes.func,
+            onAfterClose: PropTypes.func
         })
-    }).isRequired,
+    }).isRequired
 };
 
 export default connect(
     state => ({
-        modal: state.modal,
+        modal: state.modal
     }),
     dispatch => ({
         closeReactModalAction: () => dispatch(closeReactModal())

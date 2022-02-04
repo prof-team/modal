@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ModalConfirm = ({removeModal, onConfirm}) => {
     const confirmAction = () => {
-        let res = removeModal();
+        const res = removeModal();
         if (res && typeof res.then === 'function') {
             res.then(() => {
                 onConfirm();
@@ -21,7 +21,7 @@ const ModalConfirm = ({removeModal, onConfirm}) => {
 
 ModalConfirm.propTypes = {
     removeModal: PropTypes.func.isRequired,
-    onConfirm: PropTypes.func.isRequired,
+    onConfirm: PropTypes.func.isRequired
 };
 
 export default ModalConfirm;

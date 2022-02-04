@@ -5,6 +5,17 @@ on:
     branches: [ main ]
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - run: yarn install
+      - run: yarn run lint
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -19,21 +30,21 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-  slack:
-    name: Slack
-    needs: build
-    runs-on: ubuntu-latest
-    if: always()
-    steps:
-      # run this action to get workflow conclusion
-      # You can get conclusion by env (env.WORKFLOW_CONCLUSION)
-      - uses: technote-space/workflow-conclusion-action@v1
-      - uses: 8398a7/action-slack@v3
-        with:
-          status: failure
-          fields: repo,message,commit,author,action,eventName,ref,workflow # selectable (default: repo,message)
-        env:
-          GITHUB_TOKEN: 0cf3ea6197802cb49514ea0ec9659111f2add1d6 # optional
-          SLACK_WEBHOOK_URL: ${{secrets.slack_webhook_url}} # required
-        if: env.WORKFLOW_CONCLUSION == 'failure'
+#  slack:
+#    name: Slack
+#    needs: build
+#    runs-on: ubuntu-latest
+#    if: always()
+#    steps:
+#      # run this action to get workflow conclusion
+#      # You can get conclusion by env (env.WORKFLOW_CONCLUSION)
+#      - uses: technote-space/workflow-conclusion-action@v1
+#      - uses: 8398a7/action-slack@v3
+#        with:
+#          status: failure
+#          fields: repo,message,commit,author,action,eventName,ref,workflow # selectable (default: repo,message)
+#        env:
+#          GITHUB_TOKEN: 0cf3ea6197802cb49514ea0ec9659111f2add1d6 # optional
+#          SLACK_WEBHOOK_URL: ${{secrets.slack_webhook_url}} # required
+#        if: env.WORKFLOW_CONCLUSION == 'failure'
 

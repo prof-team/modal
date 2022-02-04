@@ -3,7 +3,7 @@ import ModalConfirm from './../ModalConfirm';
 export const OPEN_REACT_MODAL = 'OPEN_REACT_MODAL';
 export const CLOSE_REACT_MODAL = 'CLOSE_REACT_MODAL';
 
-export const confirmModal = (onConfirm,  title = 'Are you sure?' ) => {
+export const confirmModal = (onConfirm, title = 'Are you sure?') => {
     return (dispatch) => {
         return dispatch(openReactModal(ModalConfirm, {onConfirm: onConfirm}, {
             title: title,
@@ -19,7 +19,7 @@ export const openReactModal = (component, props, options = {}) => {
             opened: true,
             bodyComponent: component,
             bodyComponentProps: props,
-            options: options,
+            options: options
         }
     };
 };
