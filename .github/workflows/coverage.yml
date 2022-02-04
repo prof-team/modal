@@ -31,11 +31,23 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: yarn install
-#      - run: yarn run test:coverage
-      - uses: ziishaned/jest-reporter-action@v0.0.1
+      - run: yarn run test:coverage
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: 'yarn test:coverage'
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ./coverage/
+          env_vars: OS
+          fail_ci_if_error: true
+          #files: ./coverage1.xml,./coverage2.xml
+          flags: unittests
+          name: codecov-umbrella
+          #path_to_write_report: ./coverage/codecov_report.txt
+          verbose: true
+#      - uses: ziishaned/jest-reporter-action@v0.0.1
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          test-command: 'yarn test:coverage'
 #      - uses: mattallty/jest-github-action@v1
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
