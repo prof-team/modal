@@ -1,7 +1,8 @@
 import React from 'react';
 import {render, fireEvent, baseElement, store} from './__mock__/reduxRender';
 import ModalLayout from '../ModalLayout';
-import {closeReactModal, confirmModal} from '../actions/ModalActions';
+import {closeReactModal, confirmModal, openReactModal} from '../actions/ModalActions';
+import Modal from './Modal';
 
 describe('Render Modal Layout', () => {
     it('confirm modal', async () => {
@@ -41,5 +42,24 @@ describe('Render Modal Layout', () => {
         fireEvent.click(confirmBtn);
         expect(queryByRole(container, 'button', {name: /Confirm/i})).toBeNull();
         expect(confirmedCount).toBe(1);
+    });
+
+    it('render modal', () => {
+        const {getByRole, getByText, queryByRole, container} = render(<ModalLayout appElement={baseElement} title={'Test modal'} size={'small'}/>);
+        const modalData = 'I am modal data';
+        let closeModalCount = 0;
+
+        store.dispatch(openReactModal(Modal, {propContent: modalData}, {
+            onAfterClose: () => ++closeModalCount
+        }));
+        expect(getByText(modalData)).toBeInTheDocument();
+
+        const closeBtn = getByRole('button', {name: /Close modal window/i});
+        expect(closeBtn).toBeInTheDocument();
+
+        fireEvent.click(closeBtn);
+        expect(closeModalCount).toBe(1);
+
+        expect(queryByRole(container, 'button', {name: /Close modal window/i})).toBeNull();
     });
 });

@@ -1,7 +1,8 @@
 import React from 'react';
-import {useDispatch} from "react-redux";
-import {confirmModal, openReactModal} from "@profteam/modal";
-import Modal from "./Modal";
+import {useDispatch} from 'react-redux';
+import {confirmModal, openReactModal} from '@profteam/modal';
+import Modal from './Modal';
+import PropTypes from 'prop-types';
 
 const MyButton = ({handler, body}) => {
     return <div>
@@ -9,9 +10,14 @@ const MyButton = ({handler, body}) => {
             {body}
         </button>
     </div>;
-}
+};
 
-export default function () {
+MyButton.propTypes = {
+    body: PropTypes.string.isRequired,
+    handler: PropTypes.func.isRequired
+};
+
+export default function Main() {
     const dispatch = useDispatch();
 
     return <div className={'text-center'}>
@@ -46,5 +52,5 @@ export default function () {
             handler={() => dispatch(openReactModal(Modal, {}, {size: 'huge'}))}
             body={'open huge modal'}
         />
-    </div>
+    </div>;
 }

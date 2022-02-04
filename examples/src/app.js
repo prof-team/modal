@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import configureStore from "./configureStore";
-import Main from "./components/Main";
-import {ModalLayout} from "@profteam/modal";
+import configureStore from './configureStore';
+import Main from './components/Main';
+import {ModalLayout} from '@profteam/modal';
 
 const appElement = document.getElementById('root');
 

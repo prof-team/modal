@@ -1,6 +1,6 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import {ModalReducer} from "@profteam/modal";
+import {ModalReducer} from '@profteam/modal';
 
 const composeEnhancers =
     typeof window === 'object' &&
