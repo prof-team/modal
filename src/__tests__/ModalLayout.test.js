@@ -47,12 +47,18 @@ describe('Render Modal Layout', () => {
     it('render modal', () => {
         const {getByRole, getByText, queryByRole, container} = render(<ModalLayout appElement={baseElement} title={'Test modal'} size={'small'}/>);
         const modalData = 'I am modal data';
+        const modalTitle = 'custom modal title';
+        const modalSize = 'huge';
         let closeModalCount = 0;
 
         store.dispatch(openReactModal(Modal, {propContent: modalData}, {
-            onAfterClose: () => ++closeModalCount
+            onAfterClose: () => ++closeModalCount,
+            title: modalTitle,
+            size: modalSize,
+
         }));
         expect(getByText(modalData)).toBeInTheDocument();
+        expect(getByText(modalTitle)).toBeInTheDocument();
 
         const closeBtn = getByRole('button', {name: /Close modal window/i});
         expect(closeBtn).toBeInTheDocument();
