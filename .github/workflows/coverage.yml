@@ -4,20 +4,39 @@ on:
     branches: [ main ]
 jobs:
   coverage:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14.x ]
+        platform: [ ubuntu-latest ]
+    runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
+          node-version: ${{ matrix.node-version }}
       - run: yarn install
-      - uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: TestCoverage
+        id: testCoverage
+        uses: anuraag016/Jest-Coverage-Diff@master
         with:
-          test-command: "yarn run test:coverage"
-          coverage-comment: false
+          fullCoverageDiff: false // defaults to false, if made true whole coverage report is commented with the diff
+          runCommand: "npx jest --collectCoverageFrom='[\"src/**/*.{js,jsx,ts,tsx}\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary' --forceExit --detectOpenHandles test/.*test.*"
+          delta: 0.5
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-node@v2
+#        with:
+#          node-version: 16
+#          registry-url: https://registry.npmjs.org/
+#      - run: yarn install
+#      - uses: mattallty/jest-github-action@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          test-command: "yarn run test:coverage"
+#          coverage-comment: false
 #      - uses: ziishaned/jest-reporter-action@v0.0.1
 #        with:
 #          github-token: ${{ secrets.GITHUB_TOKEN }}
