@@ -17,6 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           test-command: "yarn run test:coverage"
+          coverage-comment: false
 #      - uses: ziishaned/jest-reporter-action@v0.0.1
 #        with:
 #          github-token: ${{ secrets.GITHUB_TOKEN }}
