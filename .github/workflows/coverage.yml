@@ -31,10 +31,11 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
       - run: yarn install
-      - uses: ziishaned/jest-reporter-action@v0.0.1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          test-command: 'yarn test:coverage'
+      - run: yarn run test:coverage
+#      - uses: ziishaned/jest-reporter-action@v0.0.1
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
+#          test-command: 'yarn test:coverage'
 #      - uses: mattallty/jest-github-action@v1
 #        env:
 #          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
