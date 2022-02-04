@@ -2,7 +2,7 @@ name: React-Redux Modal Package
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main1 ]
 
 jobs:
   lint:
