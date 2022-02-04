@@ -10,4 +10,9 @@ module.exports = {
     // testURL: 'http://localhost',
     setupFilesAfterEnv: [path.resolve(__dirname, './src/__tests__/setupTests.js')],
     coverageReporters: ["html", "text", "text-summary", "cobertura"],
+    coverageThreshold: {
+        global: {
+            lines: 80,
+        },
+    },
 }
